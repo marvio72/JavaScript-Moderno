@@ -1,11 +1,10 @@
 
-// console.log("Hola Mundo");
+// Otra manera de declarar variables
 
-let a   = 10;
-var b   = 10;
-const c = 10;
+let a = 10,
+    b = 20,
+    c = 10,
+    d = 10,
+    x = a + b;
 
-// c = 20; // Esto no se puede hacer
-
-a = 20;
-b = 30;
+    console.log(x);
