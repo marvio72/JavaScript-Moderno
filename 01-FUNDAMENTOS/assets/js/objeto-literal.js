@@ -28,3 +28,27 @@ const x = 'vivo';
 console.log('Vivo', personaje[x]);
 
 console.log('Última pelicula:', personaje['ultima-pelicula']);
+
+// Mas detalles de objetos literales
+
+// Borrar un elemento del objeto
+delete personaje.edad;
+
+const entriesPares = Object.entries(personaje);
+console.log(entriesPares);
+
+personaje.casado = true;
+
+// Bloquear nuesto objeto
+Object.freeze(personaje);
+
+personaje.dinero = 10000000000000;
+personaje.casado = false;
+personaje.direccion.ubicacion = 'Costa Rica';
+console.log( personaje );
+
+// Como enlistar las propiedades y valores
+const propiedades = Object.getOwnPropertyNames(personaje);
+const valores = Object.values(personaje);
+
+console.log( propiedades, valores );
