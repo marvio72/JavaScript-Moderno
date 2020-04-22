@@ -1,17 +1,13 @@
-/* jshint -W033 */
+
 const regresaTrue = ()=> {
   console.log('Regresa True');
   return true;
-}
+};
 
 const regresaFalse = ()=> {
   console.log('Regresa False');
   return false;
-}
-
-/* jshint +W033 */
-
-
+};
 
 console.warn("Not o la negación");
 console.log(regresaTrue());
@@ -38,6 +34,8 @@ console.log(regresaTrue() && regresaFalse());
 
 
 console.log("-------------------------&&------------------------------");
+
+
 regresaFalse() && regresaTrue(); //Solo ejecuta la primera función por ser false
 regresaTrue() && regresaTrue(); 
 
@@ -63,3 +61,5 @@ const a4 = soyFalso || soyUndefined || 'Ya no soy falso de nuevo' || true;
 const a5 = soyFalso || soyUndefined || regresaTrue() || 'Ya no soy falso de nuevo' || true;
 
 console.log(a1,a2,a3,a4,a5);
+
+
