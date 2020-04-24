@@ -1,3 +1,23 @@
+/*--------------------------------------------------------------
+  VARIABLES GENERALES
+  -------------------------------------------------------------*/
+/* FONDOS */
+/* FUENTES */
+/*--------------------------------------------------------------
+  ESTILOS
+  -------------------------------------------------------------*/
+html, body {
+  margin: 0px;
+  background-color: #2F4F30;
+  color: #FFFFFF;
+  font-size: 16px; }
 
+#jugador-cartas, #computadora-cartas {
+  height: 15rem; }
+  #jugador-cartas .carta, #computadora-cartas .carta {
+    width: 9rem;
+    position: relative;
+    left: 8rem;
+    margin-left: -4.6rem; }
 
 /*# sourceMappingURL=estilos.css.map */

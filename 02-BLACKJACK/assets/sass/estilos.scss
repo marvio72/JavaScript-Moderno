@@ -1,0 +1,37 @@
+/*--------------------------------------------------------------
+  VARIABLES GENERALES
+  -------------------------------------------------------------*/
+
+/* FONDOS */
+$fondoPrincipal : #2F4F30;
+
+/* FUENTES */
+$colorFuente : #FFFFFF;
+
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+  ESTILOS
+  -------------------------------------------------------------*/
+
+html, body {
+  margin: 0px;
+  background-color: $fondoPrincipal;
+  color: $colorFuente;
+  font-size: 16px;
+}
+
+#jugador-cartas, #computadora-cartas {
+  height: 15rem;
+  .carta {
+    width: 9rem;
+    position: relative;
+    left: 8rem;
+    margin-left: -4.6rem;
+  }  
+}

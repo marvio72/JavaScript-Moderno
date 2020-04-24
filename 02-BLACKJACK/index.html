@@ -1,13 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <!-- Estilo Personal-->
   <link rel="stylesheet" href="assets/css/estilos.css">
   <title>Blackjack</title>
 </head>
 <body>
+  <header class="text-center text-white bg-dark py-4 h4">
+    BlackJack
+  </header>
+
+  <div class="container">
+    <div class="row mt-2">
+      <div class="col text-center">
+        <button class="btn btn-danger">Nuevo Juego</button>
+        <button class="btn btn-primary">Pedir Carta</button>
+        <button class="btn btn-primary">Detener</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Jugador 1 - <small>0</small></h1>
+        <div id="jugador-cartas">
+          <img class="carta" src="assets/cartas/10S.png">
+          <img class="carta" src="assets/cartas/10S.png">
+          <img class="carta" src="assets/cartas/10S.png">
+          <img class="carta" src="assets/cartas/10S.png">
+        </div>
+      </div>
+    </div>
+  </div>
   
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Computadora - <small>0</small></h1>
+        <div id="computadora-cartas">
+          <img class="carta" src="assets/cartas/9H.png">
+          <img class="carta" src="assets/cartas/9H.png">
+          <img class="carta" src="assets/cartas/9H.png">
+          <img class="carta" src="assets/cartas/9H.png">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="assets/js/jquery-3.4.1.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <!-- Script Personalizado -->
   <script src="assets/js/juego.js"></script>
 </body>
 </html>
