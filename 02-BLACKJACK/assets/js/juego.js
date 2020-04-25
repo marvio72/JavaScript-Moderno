@@ -5,9 +5,17 @@
 2D = Two of Diamons
 ==============================================================================================*/
 
-let deck = [];
+let   deck  = [];
 const tipos = ['C','D','H','S'];
 const especiales = ['A','J','K','Q'];
+
+let puntosJugador = 0,
+    puntosComputadora = 0;
+
+// ENTORNO HTML
+const btnPedir      = document.querySelector('#btnPedir');
+const puntosHTML    = document.querySelectorAll('small');
+const cartasJugador = document.querySelector('#jugador-cartas');
 
 
 /*==============================================================================================
@@ -33,36 +41,54 @@ const crearDeck = () => {
 //Esta función me permite tomar una carta.
 const pedirCarta = () => {
 
-  crearDeck();
+  // crearDeck();
 
   if (deck.length === 0) {
     throw "No hay mas cartas";
   }
   
   const carta = deck.pop();
-
-  console.log(deck);
-  console.log(carta);
   return carta;
 };
 
 // Esta función le da un valor a cada carta
 const valorCarta = (carta) => {
   const valor = carta.substring(0,carta.length - 1);
-  // console.log(valor);
-
-  // if (isNaN(valor)) {
-  //   console.log('No es un número');
-  //   puntos = (valor === 'A') ? 11 : 10;
-  // }else{
-  //   console.log('Es un número');
-  //   puntos = parseInt(valor);
-  // }
-
   return (isNaN(valor)) ? 
          (valor === 'A') ? 11 : 10 : 
          (valor * 1);
 };
 
+console.log(crearDeck());
 
-console.log({valor: valorCarta(pedirCarta())});
+/*==============================================================================================
+EVENTOS
+==============================================================================================*/
+btnPedir.addEventListener('click', () => {
+  
+
+  const carta = pedirCarta();
+  // console.log(carta);
+  
+  puntosJugador += valorCarta(carta);
+  // console.log(puntosJugador);
+  
+  puntosHTML[0].innerText = puntosJugador;
+  
+  // HTML
+  // < img class = "carta" src = "assets/cartas/10S.png" >
+  const nuevaImagen = document.createElement('img');
+  nuevaImagen.classList.add('carta');
+  nuevaImagen.src = `assets/cartas/${carta}.png`;
+  cartasJugador.append(nuevaImagen);
+
+
+  if (puntosJugador > 21) {
+    console.warn('Lo sentimos');
+    btnPedir.disabled = true;
+  } else if (puntosJugador === 21) {
+      console.warn('21, genial!!!');
+      btnPedir.disabled = true;
+  } 
+
+});
