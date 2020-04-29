@@ -12,9 +12,9 @@ html, body {
   color: #FFFFFF;
   font-size: 16px; }
 
-#jugador-cartas, #computadora-cartas {
+#jugador-cartas, #cartas-computadora {
   height: 15rem; }
-  #jugador-cartas .carta, #computadora-cartas .carta {
+  #jugador-cartas .carta, #cartas-computadora .carta {
     width: 9rem;
     position: relative;
     left: 8rem;

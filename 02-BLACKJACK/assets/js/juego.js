@@ -5,17 +5,20 @@
 2D = Two of Diamons
 ==============================================================================================*/
 
-let   deck  = [];
-const tipos = ['C','D','H','S'];
+let   deck       = [];
+const tipos      = ['C','D','H','S'];
 const especiales = ['A','J','K','Q'];
 
 let puntosJugador = 0,
     puntosComputadora = 0;
 
 // ENTORNO HTML
-const btnPedir      = document.querySelector('#btnPedir');
-const puntosHTML    = document.querySelectorAll('small');
-const cartasJugador = document.querySelector('#jugador-cartas');
+const btnPedir          = document.querySelector('#btnPedir');
+const btnDetener        = document.querySelector('#btnDetener');
+
+const puntosHTML        = document.querySelectorAll('small');
+const cartasJugador     = document.querySelector('#jugador-cartas');
+const cartasComputadora = document.querySelector('#cartas-computadora');
 
 
 /*==============================================================================================
@@ -41,8 +44,6 @@ const crearDeck = () => {
 //Esta función me permite tomar una carta.
 const pedirCarta = () => {
 
-  // crearDeck();
-
   if (deck.length === 0) {
     throw "No hay mas cartas";
   }
@@ -59,7 +60,29 @@ const valorCarta = (carta) => {
          (valor * 1);
 };
 
-console.log(crearDeck());
+// Turno de la computadora
+const turnoComputadora = (puntosMinimos) => {
+  
+  do {
+    const carta = pedirCarta();
+
+
+    puntosComputadora += valorCarta(carta);
+    puntosHTML[1].innerText = puntosComputadora;
+
+    const nuevaImagen = document.createElement('img');
+    nuevaImagen.classList.add('carta');
+    nuevaImagen.src = `assets/cartas/${carta}.png`;
+    cartasComputadora.append(nuevaImagen);
+
+    if (puntosMinimos > 21) {
+      break;
+    }
+  } while ( (puntosComputadora < puntosMinimos) && (puntosMinimos <= 21) );
+
+};
+
+// console.log(crearDeck());
 
 /*==============================================================================================
 EVENTOS
@@ -68,11 +91,9 @@ btnPedir.addEventListener('click', () => {
   
 
   const carta = pedirCarta();
-  // console.log(carta);
+
   
   puntosJugador += valorCarta(carta);
-  // console.log(puntosJugador);
-  
   puntosHTML[0].innerText = puntosJugador;
   
   // HTML
@@ -86,9 +107,22 @@ btnPedir.addEventListener('click', () => {
   if (puntosJugador > 21) {
     console.warn('Lo sentimos');
     btnPedir.disabled = true;
+    btnDetener.disabled = true;
+    turnoComputadora(puntosJugador);
   } else if (puntosJugador === 21) {
-      console.warn('21, genial!!!');
-      btnPedir.disabled = true;
+    console.warn('21, genial!!!');
+    btnPedir.disabled = true;
+    btnDetener.disabled = true;
+    turnoComputadora(puntosJugador);
   } 
+
+});
+
+btnDetener.addEventListener('click', () => {
+
+  btnDetener.disabled = true;
+  btnPedir.disabled = true;
+
+  turnoComputadora(puntosJugador);
 
 });
