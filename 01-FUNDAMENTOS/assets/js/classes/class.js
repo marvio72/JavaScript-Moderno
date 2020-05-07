@@ -1,5 +1,15 @@
 class Persona {
   // propiedades de variables
+
+  static _conteo = 0;
+  static get conteo(){
+    return Persona._conteo === 1 ? `${Persona._conteo} instancia` :  `${Persona._conteo} instancias`;
+  }
+  static mensaje(){
+    console.log(this.nombre); //undefined
+    console.log('Hola a todos soy un metodo estático');
+  }
+
   nombre = '';
   codigo = '';
   frase  = '';
@@ -9,6 +19,8 @@ class Persona {
     this.nombre = nombre;
     this.codigo = codigo;
     this.frase = frase;
+
+    Persona._conteo++;
   }
 
 
@@ -41,6 +53,16 @@ spiderman.setComidaFavorita = 'El pie de cereza de la tía May';
 // Evitar hacer esto
 // spiderman.comida = "Duende Verde";
 
-console.log(spiderman.getComidaFavorita);
+// console.log(spiderman.getComidaFavorita);
 
-console.log(spiderman);
+// console.log(spiderman);
+
+console.log('Conteo estático',Persona._conteo);
+console.log(Persona.conteo);
+Persona.mensaje();
+
+// En javaScript puede declararse un metodo externo, no es recomendable hacerlo.
+Persona.metodoExterno = "Hola soy un metodo Externo";
+
+console.log(Persona.metodoExterno);
+console.log(Persona);
